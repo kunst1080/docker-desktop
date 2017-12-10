@@ -1,0 +1,12 @@
+version: "2"
+
+services:
+    dev:
+        build: .
+        privileged: true
+        container_name: x11-dev
+        volumes:
+            - /run/udev:/run/udev
+            - /etc/localtime:/etc/localtime:ro
+            - /usr/lib/locale/locale-archive:/usr/lib/locale/locale-archive:ro
+            - $HOME/x11-home:/home/user
