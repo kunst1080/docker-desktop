@@ -1,31 +1,29 @@
-FROM kunst1080/x11-wm:i3
+FROM kunst1080/x11-wm:i3-fcitx
 MAINTAINER kunst1080 kontrapunkt1080@gmail.com
 
 USER root
 
 RUN apt-get update 
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
-            chromium-browser \
-            xfce4-terminal \
             language-pack-ja \
-            im-config \
-            fcitx-mozc \
-            fcitx \
-            fcitx-tools \
-            fcitx-config-gtk \
-            fcitx-config-gtk2 \
-            fcitx-frontend-all \
-            fcitx-frontend-gtk2 \
-            fcitx-frontend-gtk3 \
-            fcitx-frontend-qt4 \
-            fcitx-frontend-qt5 \
-            fcitx-ui-classic \
-            fcitx-ui-light \
-            fcitx-ui-qimpanel \
-            mozc-utils-gui \
             fonts-migmix \
+            fonts-takao \
             ttf-ancient-fonts-symbola \
-            ttf-ancient-fonts
+            ttf-ancient-fonts \
+            chromium-browser \
+            chromium-browser-l10n \
+            xfce4-terminal
 
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+            gawk \
+            nkf \
+            athena-jot \
+            rs \
+            mecab \
+            jq \
+            moreutils \
+            num-utils
+
+ADD cmd/start.sh /start.sh
 USER $USER
 CMD [ "/usr/bin/startx" ]

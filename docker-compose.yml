@@ -5,10 +5,14 @@ services:
         build: .
         privileged: true
         container_name: x11-dev
+        environment:
+            - LANG=ja_JP.UTF-8
         volumes:
             - /run/udev:/run/udev
             - /etc/localtime:/etc/localtime:ro
             - /etc/locale.gen:/etc/locale.gen:ro
-            - /etc/default/locale:/etc/default/locale:ro
             - /usr/lib/locale/locale-archive:/usr/lib/locale/locale-archive:ro
-            - $HOME/x11-home:/home/user
+            - $HOME/.ssh:/home/user/.ssh
+            - $HOME/.gitconfig.local:/home/user/.gitconfig.local
+#            - $HOME/x11-home:/home/user
+        command: /start.sh
