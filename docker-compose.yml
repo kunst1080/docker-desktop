@@ -14,5 +14,4 @@ services:
             - /usr/lib/locale/locale-archive:/usr/lib/locale/locale-archive:ro
             - $HOME/.ssh:/home/user/.ssh
             - $HOME/.gitconfig.local:/home/user/.gitconfig.local
-#            - $HOME/x11-home:/home/user
-        command: /start.sh
+            - $HOME/x11-home:/home/user

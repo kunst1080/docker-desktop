@@ -24,6 +24,9 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
             moreutils \
             num-utils
 
-ADD cmd/start.sh /start.sh
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+            patchutils \
+            colordiff
+
 USER $USER
 CMD [ "/usr/bin/startx" ]
