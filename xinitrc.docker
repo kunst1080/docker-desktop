@@ -10,6 +10,7 @@ has_keyboard() {
 xrandr --dpi 120
 if has_keyboard ; then
     # big display is Left
+    xrandr --output LVDS1 --brightness 0.6
     xrandr --output HDMI1 --mode 1920x1200 --left-of LVDS1
 fi
 

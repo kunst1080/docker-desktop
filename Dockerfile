@@ -32,5 +32,7 @@ RUN apt-get update \
             colordiff \
 	&& rm -rf /var/lib/apt/lists/*
 
+RUN gpasswd -a user video
+
 USER $USER
 CMD [ "/usr/bin/startx" ]

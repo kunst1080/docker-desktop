@@ -12,6 +12,7 @@ services:
             - /etc/localtime:/etc/localtime:ro
             - /etc/locale.gen:/etc/locale.gen:ro
             - /usr/lib/locale/locale-archive:/usr/lib/locale/locale-archive:ro
+            - /var/run/dbus/system_bus_socket:/var/run/dbus/system_bus_socket
             # x11-home
             - $HOME/x11-home/config:/home/user/.config
             - $HOME/x11-home/local:/home/user/local
