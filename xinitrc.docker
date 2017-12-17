@@ -1,0 +1,22 @@
+git clone git@github.com:kunst1080/dotfiles.git $HOME/local/dotfiles
+$HOME/local/dotfiles/links.sh x11
+
+has_keyboard() {
+    lsusb | egrep -q 'Classic Keyboard 200|Creative Labs Wireless Keyboard/Mouse|EIZO Corp.'
+}
+
+# X11 setting
+#xrdb -merge ~/.Xdefaults
+xrandr --dpi 120
+if has_keyboard ; then
+    # big display is Left
+    xrandr --output HDMI1 --mode 1920x1200 --left-of LVDS1
+fi
+
+# Keyboard and Mouse wheel
+[ -h ~/.Xmodmap ] && unlink ~/.Xmodmap
+if has_keyboard ; then
+    ln -s ~/.Xmodmap.us ~/.Xmodmap
+else
+    ln -s ~/.Xmodmap.jis ~/.Xmodmap
+fi
