@@ -1,12 +1,15 @@
 git clone git@github.com:kunst1080/dotfiles.git $HOME/local/dotfiles
 $HOME/local/dotfiles/links.sh x11
 
+export TERM='xterm-256color'
+
 has_keyboard() {
     lsusb | egrep -q 'Classic Keyboard 200|Creative Labs Wireless Keyboard/Mouse|EIZO Corp.'
 }
 
+sleep 2
+
 # X11 setting
-#xrdb -merge ~/.Xdefaults
 xrandr --dpi 120
 if has_keyboard ; then
     # big display is Left
@@ -21,3 +24,4 @@ if has_keyboard ; then
 else
     ln -s ~/.Xmodmap.jis ~/.Xmodmap
 fi
+xmodmap ~/.Xmodmap
