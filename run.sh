@@ -6,6 +6,7 @@ LANG=ja_JP.UTF-8
 IMAGE=desktop
 
 mkdir -p $X11HOME/{local,.config,work,Downloads,Pictures}
+touch $X11HOME/.zsh_history
 
 volumes() {
     for i in $*; do
@@ -35,6 +36,6 @@ exec docker run  -it --rm --privileged \
     -v $PWD/install:/home/$USER/local/install \
     $(volumes /run/udev /run/dbus/system_bus_socket) \
     $(volumes-ro /etc/localtime /etc/locale.gen /usr/lib/locale/locale-archive) \
-    $(volumes-X11 .config local work Downloads Pictures) \
+    $(volumes-X11 .config local work Downloads Pictures .zsh_history) \
     $(volumes-home .ssh .gitconfig.local) \
     $IMAGE $* | tee xsession.log
