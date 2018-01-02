@@ -3,6 +3,7 @@
 X11HOME=$HOME/x11-home
 USER=user
 LANG=ja_JP.UTF-8
+IMAGE=desktop
 
 mkdir -p $X11HOME/{local,.config,work,Downloads,Pictures}
 
@@ -36,4 +37,4 @@ exec docker run  -it --rm --privileged \
     $(volumes-ro /etc/localtime /etc/locale.gen /usr/lib/locale/locale-archive) \
     $(volumes-X11 .config local work Downloads Pictures) \
     $(volumes-home .ssh .gitconfig.local) \
-    desktop $* | tee xsession.log
+    $IMAGE $* | tee xsession.log
