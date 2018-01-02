@@ -28,6 +28,7 @@ RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key
 RUN apt-get update \
         && DEBIAN_FRONTEND=noninteractive apt-get install -y \
             pm-utils \
+            tig \
             nkf \
             athena-jot \
             rs \
@@ -37,6 +38,7 @@ RUN apt-get update \
             num-utils \
             patchutils \
             colordiff \
+            d-feet \
 	&& rm -rf /var/lib/apt/lists/*
 
 # user
