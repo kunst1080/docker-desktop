@@ -24,6 +24,10 @@ RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key
         && apt-get install -y google-chrome-stable \
 	&& rm -rf /var/lib/apt/lists/*
 
+# Slack
+ADD install-at-build/slack.sh /tmp/slack.sh
+RUN /tmp/slack.sh
+
 # Other tools
 RUN apt-get update \
         && DEBIAN_FRONTEND=noninteractive apt-get install -y \
@@ -40,6 +44,9 @@ RUN apt-get update \
             colordiff \
             d-feet \
 	&& rm -rf /var/lib/apt/lists/*
+
+
+RUN apt-get update
 
 # user
 ENV USER user
