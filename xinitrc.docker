@@ -9,7 +9,6 @@ sleep 2
 is_dual_display() {
     xrandr | grep " connected " | grep HDMI
 }
-xrandr --dpi 120
 if is_dual_display ; then
     # big display is Left
     xrandr --output LVDS1 --brightness 0.6
