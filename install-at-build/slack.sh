@@ -1,11 +1,12 @@
 #!/bin/bash
 
 set -euv
+DEBIAN_FRONTEND=noninteractive 
 
 FILE=slack-desktop-3.0.2-amd64.deb
 
 apt-get update
-DEBIAN_FRONTEND=noninteractive apt-get install -y \
+apt-get install -y \
     gconf2 \
     gvfs-bin \
     libgnome-keyring0 \
