@@ -31,10 +31,9 @@ volumes-home() {
 
 exec docker run  -it --rm --privileged \
     -e LANG=$LANG \
-    -e NO_AT_BRIDGE=1 \
     -v $PWD/xinitrc.docker:/home/$USER/.xinitrc.docker \
     -v $PWD/install:/home/$USER/local/install \
-    $(volumes /run/udev /run/dbus/system_bus_socket) \
+    $(volumes /dev/shm /run/udev /run/dbus/system_bus_socket) \
     $(volumes-ro /etc/localtime /etc/locale.gen /usr/lib/locale/locale-archive) \
     $(volumes-X11 .config local work Downloads Pictures .zsh_history) \
     $(volumes-home .ssh .gitconfig.local) \
