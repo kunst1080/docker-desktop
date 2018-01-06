@@ -1,4 +1,4 @@
-FROM kunst1080/x11-wm:i3
+FROM kunst1080/x11-wm:xfce4
 MAINTAINER kunst1080 kontrapunkt1080@gmail.com
 
 # Japanese settings
@@ -16,6 +16,15 @@ ENV XMODIFIERS @im=fcitx
 ENV QT_IM_MODULE fcitx
 ENV GTK_IM_MODULE fcitx
 ENV DefaultIMModule fcitx
+
+# i3 wm
+RUN apt-get update \
+        && DEBIAN_FRONTEND=noninteractive apt-get install -y \
+            i3 \
+            i3blocks \
+            dmenu \
+            j4-dmenu-desktop \
+	&& rm -rf /var/lib/apt/lists/*
 
 # Other tools
 RUN apt-get update \
