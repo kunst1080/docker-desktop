@@ -52,6 +52,10 @@ RUN /tmp/vscode.sh
 
 # user
 RUN apt-get update
+
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
+            rofi
+
 ENV USER user
 RUN useradd ${USER} -m -G adm,dialout,cdrom,sudo,audio,dip,video,plugdev,netdev -s /bin/bash && echo $USER:$USER | chpasswd
 
@@ -59,4 +63,4 @@ USER $USER
 WORKDIR /home/$USER
 RUN ln -s /xinitrc .xinitrc
 
-CMD [ "/usr/bin/startx" ]
+CMD [ "/usr/bin/startx","--","vt7" ]
