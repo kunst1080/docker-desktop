@@ -32,6 +32,7 @@ RUN apt-get update \
             patchutils \
             colordiff \
             d-feet \
+            rofi \
 	&& rm -rf /var/lib/apt/lists/*
 
 # Google Chrome
