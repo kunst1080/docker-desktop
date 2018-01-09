@@ -23,11 +23,6 @@ volumes-X11() {
         echo -v $X11HOME/$i:/home/$USER/$i
     done
 }
-volumes-home() {
-    for i in $*; do
-        echo -v $HOME/$i:/home/$USER/$i
-    done
-}
 
 exec docker run  -it --rm --privileged \
     -e LANG=$LANG \
@@ -35,6 +30,5 @@ exec docker run  -it --rm --privileged \
     -v $PWD/install:/home/$USER/local/install \
     $(volumes /dev/shm /run/udev /run/dbus/system_bus_socket) \
     $(volumes-ro /etc/localtime /etc/locale.gen /usr/lib/locale/locale-archive) \
-    $(volumes-X11 .config local work Downloads Pictures .zsh_history) \
-    $(volumes-home .ssh .gitconfig.local) \
+    $(volumes-X11 .config .ssh .gitconfig.local local work Downloads Pictures .zsh_history) \
     $IMAGE $* | tee xsession.log
