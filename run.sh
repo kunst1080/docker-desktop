@@ -24,7 +24,7 @@ volumes-X11() {
     done
 }
 
-exec docker run  -it --rm --privileged \
+exec docker run --rm --privileged \
     -e LANG=$LANG \
     -v $PWD/xinitrc.docker:/home/$USER/.xinitrc.docker \
     -v $PWD/install:/home/$USER/local/install \
