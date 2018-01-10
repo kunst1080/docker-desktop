@@ -11,6 +11,7 @@ is_dual_display() {
 }
 if is_dual_display ; then
     # big display is Left
+    xrandr --output LVDS1 --brightness 0.6
     xrandr --output HDMI1 --mode 1920x1200 --left-of LVDS1
 else
     xmodmap -e 'pointer = 1 2 3 5 4 6 7 8 9 10 11 12'
