@@ -59,5 +59,3 @@ RUN useradd ${USER} -m -G adm,dialout,cdrom,sudo,audio,dip,video,plugdev,netdev 
 USER $USER
 WORKDIR /home/$USER
 RUN ln -s /xinitrc .xinitrc
-
-CMD [ "/usr/bin/startx" ]
