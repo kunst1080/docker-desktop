@@ -33,6 +33,7 @@ RUN apt-get update \
             colordiff \
             d-feet \
             rofi \
+            iputils-ping \
 	&& rm -rf /var/lib/apt/lists/*
 
 # Google Chrome
@@ -50,6 +51,10 @@ RUN /tmp/atom.sh
 # VSCode
 ADD install-at-build/vscode.sh /tmp/
 RUN /tmp/vscode.sh
+
+# emoji
+ADD install-at-build/emoji.sh /tmp/
+RUN /tmp/emoji.sh
 
 # user
 RUN apt-get update
