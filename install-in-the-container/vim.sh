@@ -1,10 +1,8 @@
 #!/bin/sh
 
-if [ -d ~/.vim ]; then
+if [ -d ~/local/.vim ]; then
   return
 fi
 
-mkdir -p ~/.vim
-mkdir -p ~/.vim/tmp ~/.vim/undo
-
-git clone http://github.com/gmarik/vundle.git ~/.vim/vundle.git
+mkdir -p ~/local/.vim
+git clone http://github.com/gmarik/vundle.git ~/local/.vim/vundle.git
