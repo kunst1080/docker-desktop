@@ -23,12 +23,12 @@ cat <<++EOS | xargs brew install
     tig
     nkf
     jq
-    moreutils --without-parallel
+    moreutils
     num-utils
     patchutils
     colordiff
     mecab
-    parallel
+    parallel --force
 ++EOS
 
 brew tap sachaos/todoist
