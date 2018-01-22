@@ -21,16 +21,8 @@ ENV DefaultIMModule fcitx
 RUN apt-get update \
         && DEBIAN_FRONTEND=noninteractive apt-get install -y \
             pm-utils \
-            tig \
-            nkf \
             athena-jot \
             rs \
-            mecab \
-            jq \
-            moreutils \
-            num-utils \
-            patchutils \
-            colordiff \
             d-feet \
             rofi \
             iputils-ping \

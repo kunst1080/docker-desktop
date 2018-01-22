@@ -14,7 +14,22 @@ fi
 if ! /usr/bin/which brew > /dev/null ; then
     exit 9
 fi
-brew install go
+cat <<++EOS | xargs brew install
+    zsh
+    tmux
+    imagemagick
+    go
+    bc
+    tig
+    nkf
+    jq
+    moreutils --without-parallel
+    num-utils
+    patchutils
+    colordiff
+    mecab
+    parallel
+++EOS
 
 brew tap sachaos/todoist
 brew install todoist
