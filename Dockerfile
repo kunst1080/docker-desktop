@@ -50,9 +50,10 @@ RUN /tmp/emoji.sh
 
 # user
 RUN apt-get update
-ENV USER user
-RUN useradd ${USER} -m -G adm,dialout,cdrom,sudo,audio,dip,video,plugdev,netdev -s /bin/bash && echo $USER:$USER | chpasswd
+ARG user=user
+ARG uid=1000
+RUN useradd ${user} -u $uid -m -G adm,dialout,cdrom,sudo,audio,dip,video,plugdev,netdev -s /bin/bash && echo $user:$user | chpasswd
 
-USER $USER
-WORKDIR /home/$USER
+USER $user
+WORKDIR /home/$user
 RUN ln -s /xinitrc .xinitrc

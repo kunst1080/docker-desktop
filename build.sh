@@ -3,4 +3,4 @@
 set -u
 
 IMAGE=desktop
-docker build . -t $IMAGE
+docker build . -t $IMAGE --build-arg uid=$UID
