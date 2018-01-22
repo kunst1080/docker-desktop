@@ -52,7 +52,8 @@ RUN /tmp/emoji.sh
 RUN apt-get update
 ARG user=user
 ARG uid=1000
-RUN useradd ${user} -u $uid -m -G adm,dialout,cdrom,sudo,audio,dip,video,plugdev,netdev -s /bin/bash && echo $user:$user | chpasswd
+RUN groupadd -g 999 docker
+RUN useradd ${user} -u $uid -m -G adm,dialout,cdrom,sudo,audio,dip,video,plugdev,netdev,docker -s /bin/bash && echo $user:$user | chpasswd
 
 USER $user
 WORKDIR /home/$user
