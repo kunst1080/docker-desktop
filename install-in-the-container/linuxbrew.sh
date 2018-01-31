@@ -22,6 +22,7 @@ cat <<++EOS | xargs brew install
     tig
     nkf
     jq
+    docker
     moreutils
     num-utils
     patchutils
