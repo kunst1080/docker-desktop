@@ -17,7 +17,6 @@ fi
 cat <<++EOS | xargs brew install
     zsh
     tmux
-    imagemagick
     go
     bc
     tig
