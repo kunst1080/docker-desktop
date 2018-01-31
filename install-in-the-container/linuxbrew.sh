@@ -27,7 +27,11 @@ cat <<++EOS | xargs brew install
     patchutils
     colordiff
     mecab
+    mecab-ipadic
     parallel --force
+    jdk
+    sbt
+    icu4c
 ++EOS
 
 brew tap sachaos/todoist
