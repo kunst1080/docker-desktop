@@ -3,6 +3,12 @@ $HOME/local/dotfiles/links.sh x11
 
 export TERM='xterm-256color'
 
+# Linuxbrew
+export PATH=$HOME/local/linuxbrew/bin:$PATH
+export MANPATH="$(brew --prefix)/share/man:$MANPATH"
+export INFOPATH="$(brew --prefix)/share/info:$INFOPATH"
+export LD_LIBRARY_PATH="$(brew --prefix)/lib:$LD_LIBRARY_PATH"
+
 sleep 2
 
 # display setting
