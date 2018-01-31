@@ -26,6 +26,7 @@ RUN apt-get update \
             d-feet \
             rofi \
             iputils-ping \
+            gimp \
 	&& rm -rf /var/lib/apt/lists/*
 
 # Google Chrome
