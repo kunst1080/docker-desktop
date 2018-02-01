@@ -5,4 +5,6 @@ if [ -d ~/local/.vim ]; then
 fi
 
 mkdir -p ~/local/.vim
-git clone http://github.com/gmarik/vundle.git ~/local/.vim/vundle.git
+git clone https://github.com/Shougo/dein.vim.git ~/local/.vim/dein.vim
+curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh ~/local/.vim/dein-installer.sh
+sh ~/local/.vim/dein-installer.sh ~/local/.vim/
