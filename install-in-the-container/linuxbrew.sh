@@ -33,6 +33,8 @@ cat <<++EOS | xargs brew install
     jdk
     sbt
     icu4c
+    peco
+    hugo
 ++EOS
 
 brew tap sachaos/todoist
