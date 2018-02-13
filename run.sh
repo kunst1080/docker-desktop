@@ -5,8 +5,7 @@ USER=user
 LANG=ja_JP.UTF-8
 IMAGE=desktop
 
-mkdir -p $X11HOME/{.config,.ssh,.mozc,local,work,Downloads,Pictures}
-touch $X11HOME/{.zsh_history,.gitconfig.local,.todoist.config.json}
+mkdir -p $X11HOME/{.config,.ssh,.persist,local,work,Downloads,Pictures}
 
 volumes() {
     for i in $*; do
@@ -31,5 +30,5 @@ exec docker run --rm --privileged \
     -v $PWD/install-in-the-container:/home/$USER/local/install \
     $(volumes /run/udev /run/dbus /run/systemd /var/run/docker.sock) \
     $(volumes-ro /etc/localtime /etc/locale.gen /usr/lib/locale/locale-archive) \
-    $(volumes-X11 .config .ssh .mozc local work Downloads Pictures .zsh_history .gitconfig.local .todoist.config.json) \
+    $(volumes-X11 .config .ssh .persist local work Downloads Pictures) \
     $IMAGE $* | tee xsession.log
