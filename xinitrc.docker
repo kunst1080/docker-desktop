@@ -9,6 +9,10 @@ export MANPATH="$(brew --prefix)/share/man:$MANPATH"
 export INFOPATH="$(brew --prefix)/share/info:$INFOPATH"
 export LD_LIBRARY_PATH="$(brew --prefix)/lib:$LD_LIBRARY_PATH"
 
+# NodeJS
+export NODEBREW_ROOT=/home/user/local/nodebrew
+export PATH=$NODEBREW_ROOT/current/bin:$PATH
+
 sleep 2
 
 # display setting
