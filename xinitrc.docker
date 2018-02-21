@@ -20,9 +20,10 @@ is_dual_display() {
     xrandr | grep " connected " | grep HDMI
 }
 if is_dual_display ; then
+    NOTEDP=$(xrandr | head -2 | tail -1 | awk '$0=$1')
     # big display is Left
-    xrandr --output LVDS1 --brightness 0.8
-    xrandr --output HDMI1 --mode 1920x1200 --left-of LVDS1
+    xrandr --output $NOTEDP --brightness 0.8
+    xrandr --output HDMI1 --mode 1920x1200 --left-of $NOTEDP
 else
     xmodmap -e 'pointer = 1 2 3 5 4 6 7 8 9 10 11 12'
 fi
