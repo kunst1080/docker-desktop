@@ -51,6 +51,10 @@ RUN /tmp/vscode.sh
 ADD install-at-build/emoji.sh /tmp/
 RUN /tmp/emoji.sh
 
+# rescuetime
+ADD install-at-build/rescuetime.sh /tmp/
+RUN /tmp/rescuetime.sh
+
 # user
 RUN apt-get update
 ARG user=user
