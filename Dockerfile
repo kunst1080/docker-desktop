@@ -17,6 +17,8 @@ ENV QT_IM_MODULE fcitx
 ENV GTK_IM_MODULE fcitx
 ENV DefaultIMModule fcitx
 
+RUN locale-gen en_US.UTF-8 ja_JP.UTF-8
+
 # Other tools
 RUN apt-get update \
         && DEBIAN_FRONTEND=noninteractive apt-get install -y \

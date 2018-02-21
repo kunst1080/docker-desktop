@@ -24,11 +24,11 @@ volumes-X11() {
 }
 
 exec docker run --rm --privileged \
-    --shm-size=2gb \
+    --shm-size=8gb \
     -e LANG=$LANG \
     -v $PWD/xinitrc.docker:/home/$USER/.xinitrc.docker \
     -v $PWD/install-in-the-container:/home/$USER/local/install \
     $(volumes /run/udev /run/dbus /run/systemd /var/run/docker.sock) \
-    $(volumes-ro /etc/localtime /etc/locale.gen /usr/lib/locale/locale-archive) \
+    $(volumes-ro /etc/localtime) \
     $(volumes-X11 .config .ssh .persist local work Downloads Pictures) \
     $IMAGE $* | tee xsession.log
