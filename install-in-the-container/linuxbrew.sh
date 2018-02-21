@@ -35,6 +35,7 @@ cat <<++EOS | xargs brew install
     icu4c
     peco
     hugo
+    pwgen
 ++EOS
 
 brew tap sachaos/todoist
