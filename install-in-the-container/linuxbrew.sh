@@ -40,3 +40,6 @@ cat <<++EOS | xargs brew install
 
 brew tap sachaos/todoist
 brew install todoist
+
+# remove openssh because of libcrypto error
+brew uninstall --ignore-dependencies openssl
