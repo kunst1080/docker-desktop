@@ -1,10 +1,12 @@
 #!/bin/sh
 
-if [ -d ~/local/.vim ]; then
+DIR=$HOME/.tmp/vim
+
+if [ -d $DIR ]; then
   return
 fi
 
-mkdir -p ~/local/.vim
-git clone https://github.com/Shougo/dein.vim.git ~/local/.vim/dein.vim
-curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh ~/local/.vim/dein-installer.sh
-sh ~/local/.vim/dein-installer.sh ~/local/.vim/
+mkdir -p $DIR
+git clone https://github.com/Shougo/dein.vim.git $DIR/dein.vim
+curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > $DIR/dein-installer.sh
+sh $DIR/dein-installer.sh $DIR
