@@ -1,1 +1,1 @@
-python3 -m venv ~/.tmp/.venv
+python3 -m venv ~/.tmp/venv

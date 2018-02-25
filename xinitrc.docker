@@ -18,7 +18,7 @@ export RBENV_ROOT=$HOME/.tmp/rbenv
 export PATH=$RBENV_ROOT/bin:$PATH
 
 # Python
-. ~/.tmp/.venv/bin/activate
+. ~/.tmp/venv/bin/activate
 
 # Go
 export GOPATH=~/work/go
