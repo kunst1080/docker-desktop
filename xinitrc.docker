@@ -20,6 +20,9 @@ export PATH=$RBENV_ROOT/bin:$PATH
 # Python
 . ~/.tmp/.venv/bin/activate
 
+# Go
+export GOPATH=~/work/go
+
 sleep 2
 
 # display setting
