@@ -1,11 +1,13 @@
 #!/bin/bash
 
 X11HOME=$HOME/x11-home
+X11HOME_CACHE=$HOME/x11-home-cache
 USER=user
 LANG=ja_JP.UTF-8
 IMAGE=desktop
 
-mkdir -p $X11HOME/{.config,.ssh,.persist,local,work,Downloads,Pictures}
+mkdir -p $X11HOME/{.config,.ssh,.persist,bin,work,Downloads,Pictures}
+mkdir -p $X11HOME_CACHE
 
 volumes() {
     for i in $*; do
@@ -27,8 +29,9 @@ exec docker run --rm --privileged \
     --shm-size=8gb \
     -e LANG=$LANG \
     -v $PWD/xinitrc.docker:/home/$USER/.xinitrc.docker \
-    -v $PWD/install-in-the-container:/home/$USER/local/install \
+    -v $PWD/install-in-the-container:/home/$USER/.install \
+    -v $X11HOME_CACHE:/home/$USER/.tmp \
     $(volumes /run/udev /run/dbus /run/systemd /var/run/docker.sock) \
     $(volumes-ro /etc/localtime) \
-    $(volumes-X11 .config .ssh .persist local work Downloads Pictures) \
+    $(volumes-X11 .config .ssh .persist bin work Downloads Pictures) \
     $IMAGE $* | tee xsession.log

@@ -2,7 +2,7 @@
 
 set -euv
 
-DIR=$HOME/local/linuxbrew
+DIR=$HOME/.tmp/linuxbrew
 
 # download
 if [ ! -d $DIR ]; then

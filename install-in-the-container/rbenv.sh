@@ -6,7 +6,7 @@ sudo apt update -y
 sudo apt install -y libssl-dev libreadline-dev zlib1g-dev
 
 #DIR=$HOME/.rbenv
-DIR=$HOME/local/.rbenv
+DIR=$HOME/.tmp/rbenv
 
 # download
 if [ ! -d $DIR ]; then
@@ -15,7 +15,7 @@ if [ ! -d $DIR ]; then
 fi
 
 # build and install
-if ! /usr/bin/which rbenv > /dev/null ; then
+if /usr/bin/which rbenv > /dev/null ; then
   PATH=$DIR/bin:$PATH
   eval "$(rbenv init -)"
   rbenv install -v 2.4.1

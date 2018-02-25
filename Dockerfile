@@ -29,6 +29,7 @@ RUN apt-get update \
             rofi \
             iputils-ping \
             gimp \
+            python3-venv \
 	&& rm -rf /var/lib/apt/lists/*
 
 # Google Chrome
