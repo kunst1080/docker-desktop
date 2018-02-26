@@ -34,4 +34,5 @@ exec docker run --rm --privileged \
     $(volumes /run/udev /run/dbus /run/systemd /var/run/docker.sock) \
     $(volumes-ro /etc/localtime) \
     $(volumes-X11 .config .ssh .persist bin work Downloads Pictures) \
+    $DOCKER_DESKTOP_OPTS \
     $IMAGE $* | tee xsession.log
